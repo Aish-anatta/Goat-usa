@@ -1,0 +1,29 @@
+{% comment %}
+  Custom Fonts - Balletica
+  Loads the Balletica custom font for the accent/decorative font slot.
+  This snippet MUST be rendered AFTER theme-styles-variables.liquid in
+  layout/theme.liquid so the CSS variable override takes effect.
+
+  IMPORTANT: Upload Balletica .woff2 font files to Shopify Files or the
+  theme assets/ directory, then update the src URL below.
+{% endcomment %}
+
+<style>
+  /* Balletica - Custom accent/decorative font for GOAT USA brand */
+  /* TODO: Replace the src URL with the actual uploaded font file URL */
+  /* Upload balletica.woff2 to Shopify Files (Settings > Files) and paste the URL below */
+  @font-face {
+    font-family: 'Balletica';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('{{ "balletica.woff2" | asset_url }}') format('woff2');
+  }
+
+  /* Override the accent font CSS variable to use Balletica */
+  :root {
+    --font-accent--family: 'Balletica', {{ settings.type_accent_font.family }}, {{ settings.type_accent_font.fallback_families }};
+    --font-accent--style: normal;
+    --font-accent--weight: 400;
+  }
+</style>
